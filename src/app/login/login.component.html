@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <form #ref="ngForm" (ngSubmit)="submitFor(ref.value)">
+            <div class="form-group">
+                <label for="">Username</label>
+                <input type="text" class="form-control" #ref1="ngModel" name="username" required ngModel>
+            </div>
+
+            <!--msg for required violation-->
+            <div class="alert alert-danger" *ngIf="ref1.touched&&ref1.invalid">
+                *This field is required
+            </div>
+
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control" name="password" ngModel pattern="\d\d.*">
+            </div>
+            <div class="text-center">
+                <button class="btn btn-success" 
+                type="submit" [disabled]="ref.invalid">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-sm-3"></div>
+
+
+</div>
